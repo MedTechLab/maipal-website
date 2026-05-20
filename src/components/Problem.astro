@@ -1,0 +1,124 @@
+---
+---
+
+<section class="section problem" id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Problem</div>
+      <h2 class="section-title">Two pressures, one window of opportunity.</h2>
+    </div>
+
+    <div class="prob-grid">
+      <article class="prob-card prob-physical">
+        <div class="prob-icon">体</div>
+        <h3>Physical decline begins quietly</h3>
+        <p>
+          The 45–64 age group is at a stage where bodily functions
+          gradually decline — slowed metabolism, reduced muscle strength,
+          changes in cardiovascular function.
+        </p>
+        <p class="prob-quote">
+          Without active prevention, these changes accumulate and lead to
+          chronic disease, disability and greater medical demand.
+        </p>
+        <span class="prob-cite">Report of Population Health Survey 2020–22</span>
+      </article>
+
+      <article class="prob-card prob-psych">
+        <div class="prob-icon prob-icon--gold">心</div>
+        <h3>Health awareness turns to anxiety</h3>
+        <p>
+          When physical condition deteriorates, middle-aged individuals
+          often develop stronger health awareness than younger years —
+          but this heightened perception can trigger health anxiety and
+          excessive worry about underlying disease.
+        </p>
+        <p class="prob-quote">
+          The rise in health consciousness creates an opportunity for
+          effective intervention — through empathetic psychological support
+          and lifestyle adjustments rooted in long-term care.
+        </p>
+        <span class="prob-cite">Godino et al., 2014 · Alsenany 2025</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem { padding-top: 56px; padding-bottom: 80px; }
+  .section-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0;
+  }
+  .prob-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .prob-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1.18px solid var(--hairline);
+    border-radius: var(--radius-xl);
+    padding: 40px 36px;
+    box-shadow: 0 4px 16px rgba(107, 93, 79, 0.08);
+    backdrop-filter: blur(4px);
+  }
+  .prob-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--shiqing) 0%, #5d6f57 100%);
+    color: #fff;
+    font-family: var(--font-brush);
+    font-size: 32px;
+    text-align: center;
+    line-height: 56px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(123, 140, 118, 0.32);
+  }
+  .prob-icon--gold {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+    box-shadow: 0 8px 20px rgba(212, 165, 116, 0.38);
+  }
+  .prob-card h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .prob-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    margin: 0 0 14px;
+  }
+  .prob-quote {
+    padding-left: 14px;
+    border-left: 3px solid var(--shiqing);
+    color: var(--ink-soft) !important;
+    font-style: normal;
+  }
+  .prob-psych .prob-quote { border-left-color: var(--gold); }
+  .prob-cite {
+    display: block;
+    margin-top: 14px;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 720px) {
+    .prob-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 28px; }
+    .prob-card { padding: 28px 24px; }
+  }
+</style>

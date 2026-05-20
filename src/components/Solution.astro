@@ -1,0 +1,202 @@
+---
+const pillars = [
+  { label: "Habit Building",        cn: "习惯养成" },
+  { label: "Wellness Regulation",   cn: "调理身心" },
+  { label: "Prevention",            cn: "未病先防" },
+  { label: "Emotional Support",     cn: "心绪相伴" },
+  { label: "Tech Accessibility",    cn: "科技亲和" },
+  { label: "Quality of Life",       cn: "生活之美" },
+];
+---
+
+<section class="section solution" id="solution">
+  <div class="wrap">
+    <div class="solution-grid">
+      <div class="solution-copy">
+        <div class="eyebrow">Our Solution</div>
+        <h2 class="section-title">
+          A digital TCM doctor that <em>slows you down</em>, not funnels you through.
+        </h2>
+        <p class="lede">
+          MaiPal brings authentic Traditional Chinese Medicine wisdom into everyday life
+          through an empathetic AI practitioner. Users enjoy warm, natural
+          conversations that quietly deliver the essence of <strong>望闻问切</strong>
+          — without any clinical feel.
+        </p>
+        <p class="lede">
+          A trusted, long-term health friend rather than another medical app.
+        </p>
+        <div class="solution-quote brush">
+          为了下一个五十年。
+        </div>
+        <div class="solution-quote-en">For the next 50 years.</div>
+      </div>
+
+      <div class="hex-wheel" aria-hidden="false" aria-label="Six pillars of MaiPal">
+        <div class="hex-center">
+          <span class="hex-glyph brush">脉</span>
+        </div>
+        {pillars.map((p, i) => (
+          <div class={`hex-pillar pillar-${i + 1}`}>
+            <div class="hex-shape">
+              <span class="hex-label">{p.label}</span>
+              <span class="hex-cn">{p.cn}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .solution { padding-top: 80px; padding-bottom: 80px; }
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .solution-copy .eyebrow { margin-bottom: 18px; }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 22px;
+  }
+  .section-title em { color: var(--shiqing); font-style: italic; font-weight: 700; }
+  .lede {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-muted);
+    margin: 0 0 18px;
+  }
+  .lede strong { color: var(--shiqing); font-weight: 500; }
+  .solution-quote {
+    margin-top: 32px;
+    font-size: 38px;
+    line-height: 1.2;
+  }
+  .solution-quote-en {
+    margin-top: 8px;
+    font-size: 14px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* Hex wheel */
+  .hex-wheel {
+    position: relative;
+    width: 460px;
+    height: 460px;
+    margin: 0 auto;
+  }
+  .hex-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--shiqing) 0%, #5d6f57 100%);
+    box-shadow: 0 12px 32px rgba(123, 140, 118, 0.35), inset 0 0 0 6px rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+  .hex-glyph {
+    color: #fff !important;
+    font-size: 72px;
+    filter: none;
+    line-height: 1;
+  }
+
+  .hex-pillar {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    top: 50%; left: 50%;
+    transform-origin: center center;
+  }
+  /* Hex positions — 60° apart, 165px radius */
+  .pillar-1 { transform: translate(-50%, -50%) rotate(0deg)    translateY(-170px) rotate(0deg); }
+  .pillar-2 { transform: translate(-50%, -50%) rotate(60deg)   translateY(-170px) rotate(-60deg); }
+  .pillar-3 { transform: translate(-50%, -50%) rotate(120deg)  translateY(-170px) rotate(-120deg); }
+  .pillar-4 { transform: translate(-50%, -50%) rotate(180deg)  translateY(-170px) rotate(-180deg); }
+  .pillar-5 { transform: translate(-50%, -50%) rotate(240deg)  translateY(-170px) rotate(-240deg); }
+  .pillar-6 { transform: translate(-50%, -50%) rotate(300deg)  translateY(-170px) rotate(-300deg); }
+
+  .hex-shape {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1.18px solid var(--hairline);
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(107, 93, 79, 0.10);
+    padding: 12px;
+    text-align: center;
+    transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
+    backdrop-filter: blur(4px);
+  }
+  .hex-shape:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(107, 93, 79, 0.16);
+  }
+  .hex-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .hex-cn {
+    font-family: var(--font-brush);
+    color: var(--shiqing);
+    font-size: 16px;
+    margin-top: 6px;
+  }
+
+  /* Tint pillars alternately */
+  .pillar-2 .hex-shape, .pillar-4 .hex-shape, .pillar-6 .hex-shape {
+    background: linear-gradient(160deg, rgba(232, 193, 124, 0.18) 0%, rgba(255, 255, 255, 0.95) 60%);
+  }
+  .pillar-1 .hex-shape, .pillar-3 .hex-shape, .pillar-5 .hex-shape {
+    background: linear-gradient(160deg, rgba(123, 140, 118, 0.12) 0%, rgba(255, 255, 255, 0.95) 60%);
+  }
+
+  @media (max-width: 920px) {
+    .solution-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hex-wheel { width: 360px; height: 360px; }
+    .hex-pillar { width: 108px; height: 108px; }
+    .pillar-1 { transform: translate(-50%, -50%) rotate(0deg)    translateY(-135px) rotate(0deg); }
+    .pillar-2 { transform: translate(-50%, -50%) rotate(60deg)   translateY(-135px) rotate(-60deg); }
+    .pillar-3 { transform: translate(-50%, -50%) rotate(120deg)  translateY(-135px) rotate(-120deg); }
+    .pillar-4 { transform: translate(-50%, -50%) rotate(180deg)  translateY(-135px) rotate(-180deg); }
+    .pillar-5 { transform: translate(-50%, -50%) rotate(240deg)  translateY(-135px) rotate(-240deg); }
+    .pillar-6 { transform: translate(-50%, -50%) rotate(300deg)  translateY(-135px) rotate(-300deg); }
+    .hex-center { width: 100px; height: 100px; }
+    .hex-glyph { font-size: 56px; }
+    .section-title { font-size: 28px; }
+    .solution-quote { font-size: 30px; }
+  }
+  @media (max-width: 480px) {
+    .hex-wheel { width: 300px; height: 300px; }
+    .hex-pillar { width: 92px; height: 92px; }
+    .pillar-1 { transform: translate(-50%, -50%) rotate(0deg)    translateY(-110px) rotate(0deg); }
+    .pillar-2 { transform: translate(-50%, -50%) rotate(60deg)   translateY(-110px) rotate(-60deg); }
+    .pillar-3 { transform: translate(-50%, -50%) rotate(120deg)  translateY(-110px) rotate(-120deg); }
+    .pillar-4 { transform: translate(-50%, -50%) rotate(180deg)  translateY(-110px) rotate(-180deg); }
+    .pillar-5 { transform: translate(-50%, -50%) rotate(240deg)  translateY(-110px) rotate(-240deg); }
+    .pillar-6 { transform: translate(-50%, -50%) rotate(300deg)  translateY(-110px) rotate(-300deg); }
+    .hex-center { width: 80px; height: 80px; }
+    .hex-glyph { font-size: 44px; }
+    .hex-label { font-size: 11px; }
+    .hex-cn { font-size: 13px; }
+  }
+</style>

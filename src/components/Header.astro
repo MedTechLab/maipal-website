@@ -1,0 +1,95 @@
+---
+const { current = "" } = Astro.props;
+const links = [
+  { href: "/#solution", label: "Solution" },
+  { href: "/#product", label: "Product" },
+  { href: "/#preview", label: "Preview" },
+  { href: "/#team", label: "Team" },
+  { href: "/slideshow", label: "Slideshow" },
+];
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="brand">
+      <span class="brand-glyph">脉</span>
+      <span class="brand-name">
+        <span class="brand-name-en">MaiPal</span>
+        <span class="brand-name-cn">脉伴</span>
+      </span>
+    </a>
+    <nav>
+      <ul class="nav-list">
+        {links.map(l => (
+          <li>
+            <a href={l.href} class={current === l.href ? "is-current" : ""}>{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250, 245, 240, 0.82);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1.18px solid var(--hairline);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-glyph {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(180deg, var(--shiqing) 0%, var(--shiqing) 6px, #fff 6px);
+    color: var(--shiqing);
+    font-family: var(--font-brush);
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(123,140,118,0.18);
+    border: 1.18px solid var(--hairline);
+  }
+  .brand-name { display: inline-flex; flex-direction: column; line-height: 1; }
+  .brand-name-en { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--ink); }
+  .brand-name-cn { font-family: var(--font-brush); font-size: 15px; color: var(--shiqing); margin-top: 3px; }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  nav a {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: color 200ms var(--ease), background 200ms var(--ease);
+  }
+  nav a:hover { color: var(--shiqing); background: rgba(123, 140, 118, 0.08); }
+  nav a.is-current { color: var(--shiqing); background: rgba(123, 140, 118, 0.12); }
+
+  @media (max-width: 720px) {
+    .nav-list li { display: none; }
+    .nav-list li:last-child { display: inline-flex; }
+  }
+</style>

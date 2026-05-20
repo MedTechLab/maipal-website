@@ -1,0 +1,213 @@
+---
+const methods = [
+  {
+    glyph: "望",
+    py: "Wàng",
+    en: "Inspection",
+    body: "MaiPal gently observes facial complexion, vitality and skin tone via front camera to assess 气血 (qi-blood) and overall spirit.",
+  },
+  {
+    glyph: "闻",
+    py: "Wén",
+    en: "Auscultation",
+    body: "MaiPal gently observes facial complexion, vitality and skin tone via front camera to assess 气血 (qi-blood) and overall spirit.",
+  },
+  {
+    glyph: "问",
+    py: "Wèn",
+    en: "Inquiry",
+    body: "MaiPal asks warm, contextual questions about sleep, diet, digestion, emotions and lifestyle to uncover holistic patterns.",
+  },
+  {
+    glyph: "切",
+    py: "Qiè",
+    en: "Palpation",
+    body: "For users with wearables, MaiPal accesses device-detected heart rate data to approximate pulse insights.",
+  },
+];
+
+const features = [
+  {
+    title: "Customized Daily Intervention Planning",
+    cn: "个性化每日调理",
+    body: "Generates actionable daily wellness plans tailored to individual constitution and real-time condition.",
+  },
+  {
+    title: "Integrated Wellness Product Ecosystem",
+    cn: "全链路调理生态",
+    body: "Bridges AI-driven recommendations with curated wellness products and services in a closed-loop system.",
+  },
+  {
+    title: "Longitudinal Personal Health Profiling",
+    cn: "长期健康追踪",
+    body: "Continuously builds and updates an evolving personal health and constitution profile over time.",
+  },
+];
+---
+
+<section class="section product" id="product">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Product</div>
+      <h2 class="section-title">
+        Digitizing 望闻问切 — the four classical TCM diagnostic methods.
+      </h2>
+      <p class="section-lede">
+        MaiPal replicates TCM's Four Diagnostic Methods (四诊合参) through natural
+        conversation. Each method becomes an unhurried interaction, not a clinical test.
+      </p>
+    </div>
+
+    <div class="diagnostics">
+      {methods.map(m => (
+        <article class="dx-card">
+          <div class="dx-head">
+            <span class="dx-glyph brush">{m.glyph}</span>
+            <div>
+              <div class="dx-py">{m.py}</div>
+              <div class="dx-en">{m.en}</div>
+            </div>
+          </div>
+          <p>{m.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="features">
+      {features.map(f => (
+        <article class="feature">
+          <div class="feat-bar"></div>
+          <h3>{f.title}</h3>
+          <div class="feat-cn">{f.cn}</div>
+          <p>{f.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .product { padding-top: 80px; padding-bottom: 56px; }
+  .section-head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .section-lede {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-muted);
+  }
+  .diagnostics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 56px;
+  }
+  .dx-card {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1.18px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(4px);
+    transition: transform 250ms var(--ease), box-shadow 250ms var(--ease);
+  }
+  .dx-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(107, 93, 79, 0.14);
+  }
+  .dx-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .dx-glyph {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--shiqing) 0%, #5d6f57 100%);
+    color: #fff !important;
+    font-size: 38px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 14px;
+    filter: none !important;
+    box-shadow: 0 6px 14px rgba(123, 140, 118, 0.32);
+  }
+  .dx-py {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--shiqing);
+    line-height: 1;
+  }
+  .dx-en {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+  .dx-card p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .feature {
+    position: relative;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.18px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px 28px 28px;
+    overflow: hidden;
+  }
+  .feat-bar {
+    position: absolute;
+    left: 0; top: 16px;
+    width: 4px;
+    height: calc(100% - 32px);
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-bright) 100%);
+    border-radius: 999px;
+  }
+  .feature:nth-child(2) .feat-bar {
+    background: linear-gradient(180deg, var(--shiqing) 0%, var(--shilv) 100%);
+  }
+  .feature:nth-child(3) .feat-bar {
+    background: linear-gradient(180deg, var(--xuanzhi-warm) 0%, var(--xuanzhi-dark) 100%);
+  }
+  .feature h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+    margin: 0 0 4px;
+    line-height: 1.35;
+  }
+  .feat-cn {
+    font-family: var(--font-brush);
+    color: var(--shiqing);
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+  .feature p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+
+  @media (max-width: 920px) {
+    .diagnostics { grid-template-columns: repeat(2, 1fr); }
+    .features    { grid-template-columns: 1fr; }
+    .section-title { font-size: 28px; }
+  }
+  @media (max-width: 480px) {
+    .diagnostics { grid-template-columns: 1fr; }
+  }
+</style>

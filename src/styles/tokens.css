@@ -1,0 +1,287 @@
+/* ============================================================
+   MaiPal 脉伴 — Design Tokens
+   Colors & Type for the AI Traditional Chinese Medicine companion
+   Palette inspired by 千里江山图 (A Thousand Li of Rivers and Mountains)
+   ============================================================ */
+
+/* --- Webfonts -------------------------------------------------
+   ChillHuoKai (寒蝉活楷) — the brand brush-kai. Self-hosted.
+   Greeting H1s, splash glyph, section openers.
+     - Regular     → weight 400, stretch normal
+     - ConRegular  → weight 400, stretch condensed
+     - ConBold     → weight 700, stretch condensed
+
+   Google Fonts:
+     - ZCOOL XiaoWei  → display calligraphic (titles, section headers)
+     - Noto Serif SC  → secondary calligraphic / numerals
+     - Noto Sans SC   → primary UI sans (body, buttons, labels)
+--------------------------------------------------------------- */
+@font-face {
+  font-family: 'ChillHuoKai';
+  src: url('/fonts/ChillHuoKai_Regular.otf') format('opentype');
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ChillHuoKai';
+  src: url('/fonts/ChillHuoKai_ConRegular.otf') format('opentype');
+  font-weight: 400;
+  font-stretch: condensed;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ChillHuoKai';
+  src: url('/fonts/ChillHuoKai_ConBold.otf') format('opentype');
+  font-weight: 700;
+  font-stretch: condensed;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     BRAND PALETTE — 千里江山图配色 (Qian Li Jiang Shan)
+     "A thousand miles of rivers and mountains" colorway.
+     Sage greens, mineral gold-ochres, ink black on warm paper.
+     ============================================================ */
+
+  /* Sage / mineral green family — used for primary actions, brand voice */
+  --shiqing:        #7b8c76;  /* 石青 — sage-stone; PRIMARY brand & buttons */
+  --shiqing-deep:   #4a7c8e;  /* 石青深 — ink-blue accent (links / cool) */
+  --shilv:          #6fb899;  /* 石绿 — fresh mineral green */
+  --shilv-light:    #8cc9a8;  /* 石绿浅 — light mineral green */
+  --shilv-soft:     rgba(111,184,153,0.15); /* common 1.18px hairline */
+
+  /* Mineral gold-ochre — used for accents, points, "rewards" */
+  --gold:           #d4a574;  /* 赭石 — ochre gold */
+  --gold-bright:    #e8b563;  /* 赭石亮 — bright ochre */
+  --xuanzhi:        #e8c17c;  /* 宣纸 — xuan-paper amber base */
+  --xuanzhi-warm:   #d9a96a;  /* 宣纸暖 — warm paper */
+  --xuanzhi-dark:   #c99855;  /* 宣纸深 — deep paper */
+
+  /* Ink & paper — neutrals */
+  --ink:            #2a2a2a;  /* 墨 — chinese ink, primary text */
+  --ink-soft:       #5a4a3a;  /* 墨润 — softened ink, headings on cream */
+  --ink-muted:      #6b5d4f;  /* 墨淡 — muted brown-grey, body 2 */
+  --paper:          #f8f3ee;  /* 纸 — warm paper, card surface */
+  --paper-veil:     #f0e6dc;  /* 纸纱 — warm paper veil, chips */
+  --paper-cream:    #faf5f0;  /* 米色 — paper cream, soft backgrounds */
+  --muted-tan:      #e8dcc8;  /* 浅褐 — muted tan */
+
+  /* Foreground / background semantic mappings */
+  --bg:             var(--xuanzhi);
+  --bg-paper:       var(--paper-cream);
+  --fg:             var(--ink);
+  --fg-1:           var(--ink);         /* primary text */
+  --fg-2:           var(--ink-soft);    /* secondary headings */
+  --fg-3:           var(--ink-muted);   /* tertiary / captions */
+  --fg-on-primary:  #ffffff;
+
+  /* Surfaces */
+  --surface:               rgba(255,255,255,0.95);  /* cards on photo bg */
+  --surface-translucent:   rgba(255,255,255,0.78);  /* AI bubble */
+  --surface-strong:        #ffffff;
+  --surface-veil:          var(--paper-veil);
+
+  /* Strokes */
+  --hairline:        rgba(111,184,153,0.15);  /* 1.18px common border */
+  --hairline-ink:    rgba(0,0,0,0.1);
+  --ring:            var(--shiqing);
+
+  /* Semantic */
+  --primary:               var(--shiqing);
+  --primary-foreground:    #ffffff;
+  --secondary:             var(--shilv);
+  --accent-warm:           var(--gold);
+  --accent-bright:         var(--gold-bright);
+  --destructive:           #d4183d;
+  --destructive-fg:        #ffffff;
+  --user-bubble:           var(--shiqing);
+  --user-bubble-fg:        #ffffff;
+  --ai-bubble:             var(--surface-translucent);
+  --ai-bubble-fg:          var(--ink);
+  --send-button:           #D7C8B0;  /* dust gold for send icon background */
+
+  /* ============================================================
+     TYPOGRAPHY
+     ============================================================ */
+
+  /* Font families */
+  --font-brush:    'ChillHuoKai', 'Ma Shan Zheng', cursive;     /* greeting H1, character "脉" */
+  --font-brush-condensed: 'ChillHuoKai', 'Ma Shan Zheng', cursive; /* use w/ font-stretch:condensed */
+  --font-display:  'ZCOOL XiaoWei', 'Noto Serif SC', serif;      /* section titles, headers */
+  --font-serif:    'Noto Serif SC', serif;                       /* numerals, quotes */
+  --font-sans:     'Noto Sans SC', system-ui, -apple-system, 'PingFang SC', sans-serif;
+
+  /* Type scale (in px — mobile-first; design canvas is 375px iPhone) */
+  --text-xs:    11px;   /* meta, source-store tag */
+  --text-sm:    12px;   /* captions, weekday labels */
+  --text-base:  13px;   /* secondary body */
+  --text-md:    14px;   /* primary body, chat bubble */
+  --text-lg:    15px;   /* emphasized body, task text */
+  --text-xl:    16px;   /* labels, buttons */
+  --text-2xl:   18px;   /* card section titles */
+  --text-3xl:   20px;   /* H2 — page sub-heads */
+  --text-4xl:   24px;   /* modal titles */
+  --text-5xl:   32px;   /* H1 brand greeting */
+  --text-6xl:   48px;   /* "脉" character / hero numeral */
+
+  --leading-tight:  1.2;
+  --leading-snug:   1.4;
+  --leading-body:   1.6;     /* explicitly used in onboarding copy */
+  --leading-bubble: 1.857;   /* 26 / 14 — chat bubbles */
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  /* ============================================================
+     SHAPE, ELEVATION, MOTION
+     ============================================================ */
+
+  /* Corner radii — generous, rounded paper-edge feel */
+  --radius-xs:   10px;   /* settings tile, calendar day */
+  --radius-sm:   12px;   /* task row */
+  --radius-md:   16px;   /* modal interior cards, input */
+  --radius-lg:   20px;   /* primary cards */
+  --radius-xl:   28px;   /* modal */
+  --radius-pill: 30px;   /* pills, primary CTAs */
+  --radius-circle: 999px;
+
+  /* Shadows — soft, brown-tinted (ink-on-paper) */
+  --shadow-xs:  0px 2px 4px rgba(0,0,0,0.05);
+  --shadow-sm:  0px 4px 4px rgba(107,93,79,0.05);
+  --shadow:     0px 4px 6px rgba(0,0,0,0.05);
+  --shadow-md:  0px 4px 8px rgba(107,93,79,0.05);
+  --shadow-lg:  0px 4px 10px rgba(123,140,118,0.4);   /* FAB */
+  --shadow-xl:  0px 12px 28px rgba(107,93,79,0.25);   /* modal */
+  --shadow-2xl: 0px 16px 40px rgba(0,0,0,0.18);
+  --shadow-text-h1: drop-shadow(0px 3px 3px rgba(0,0,0,0.12));
+  --shadow-button-primary: 0px 4px 6px rgba(107,93,79,0.15);
+  --shadow-active-tab:     0px 4px 4px rgba(107,93,79,0.25);
+
+  /* Motion — slow, soft, "calm and trustworthy". No bounces. */
+  --ease:           cubic-bezier(0.25, 0.1, 0.25, 1);  /* easeOut, the default */
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
+  --press-scale:    0.95;    /* active:scale-95 — universal press */
+  --soft-press:     0.98;    /* active:scale-[0.98] — for large rows/buttons */
+  --duration-fast:  300ms;
+  --duration:       450ms;
+  --duration-slow:  600ms;
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   ============================================================ */
+
+body {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  font-size: var(--text-md);
+  line-height: var(--leading-snug);
+  background-color: var(--xuanzhi);
+}
+
+h1 {
+  font-family: var(--font-brush);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-regular);
+  line-height: 1.125;
+  color: var(--shiqing);
+  filter: var(--shadow-text-h1);
+  margin: 0;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0;
+}
+
+h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+h4 {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0;
+}
+
+p, label {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+  color: var(--fg-3);
+  margin: 0;
+}
+
+button {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+}
+
+/* Brand chat bubble styles */
+.bubble-user {
+  background: var(--user-bubble);
+  color: var(--user-bubble-fg);
+  padding: 13px 17px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0px 3px 5px rgba(0,0,0,0.08);
+  font-size: var(--text-md);
+  line-height: var(--leading-bubble);
+}
+.bubble-ai {
+  background: var(--ai-bubble);
+  color: var(--ai-bubble-fg);
+  border: 1.18px solid var(--hairline);
+  padding: 13px 17px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xs);
+  backdrop-filter: blur(2px);
+  font-size: var(--text-md);
+  line-height: var(--leading-bubble);
+}
+
+/* Primary pill button — Shiqing */
+.btn-shiqing {
+  background: var(--shiqing);
+  color: var(--fg-on-primary);
+  border-radius: var(--radius-pill);
+  padding: 12px 24px;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  box-shadow: 0px 4px 6px rgba(123,140,118,0.2);
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms var(--ease);
+}
+.btn-shiqing:active { transform: scale(var(--press-scale)); }
+
+/* Secondary pill — Sand */
+.btn-sand {
+  background: #D7C8B0;
+  color: var(--fg-on-primary);
+  border-radius: var(--radius-pill);
+  padding: 12px 24px;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  box-shadow: 0px 4px 6px rgba(215,200,176,0.2);
+  border: none;
+  cursor: pointer;
+}
+.btn-sand:active { transform: scale(var(--press-scale)); }

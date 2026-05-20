@@ -1,0 +1,112 @@
+---
+const stats = [
+  {
+    big: "1.2B",
+    label: "Chinese speakers globally",
+    detail: "Vast majority native speakers (Ethnologue 2026).",
+  },
+  {
+    big: "45–64",
+    label: "Target demographic",
+    detail: "A rapidly growing segment facing gradual decline in bodily functions and rising health awareness.",
+  },
+  {
+    big: "30%",
+    label: "of Hong Kong's population",
+    detail: "≈ 2,245–2,290 thousand people aged 45–64 (HK Population Projections 2022–2046).",
+  },
+];
+---
+
+<section class="section bg-section" id="background">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Background</div>
+      <h2 class="section-title">
+        A generation reaching the age where prevention matters most.
+      </h2>
+      <p class="section-lede">
+        Chinese-speaking adults aged 45–64, in mainland China, Hong Kong and Chinese
+        communities worldwide, are entering the sub-health stage — and increasingly
+        value preventive care rooted in <strong>Traditional Chinese Medicine</strong>.
+      </p>
+    </div>
+
+    <div class="stat-grid">
+      {stats.map(s => (
+        <article class="stat">
+          <div class="stat-big">{s.big}</div>
+          <div class="stat-label">{s.label}</div>
+          <p class="stat-detail">{s.detail}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-section { padding-top: 72px; padding-bottom: 72px; }
+  .section-head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .section-lede {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+  .section-lede strong { color: var(--shiqing); font-weight: 500; }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .stat {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.18px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    box-shadow: 0 2px 8px rgba(107, 93, 79, 0.06);
+    backdrop-filter: blur(4px);
+    transition: transform 300ms var(--ease), box-shadow 300ms var(--ease);
+  }
+  .stat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(107, 93, 79, 0.12);
+  }
+  .stat-big {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--shiqing);
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+  }
+  .stat-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .stat-detail {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .stat-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 28px; }
+    .stat-big { font-size: 44px; }
+  }
+</style>
