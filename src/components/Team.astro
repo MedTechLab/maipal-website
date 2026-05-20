@@ -1,0 +1,217 @@
+---
+const team = [
+  {
+    name: "Dr. Anthony Kong",
+    role: "Market Lead",
+    title: "Professor, School of Design",
+    bio: "Rich experience in Digital Media, Storytelling for Transmedia, Digital Culture and Humanity.",
+    awards: [
+      "2023 RED DOT Award winner",
+      "2024 Bronze Award, DFA Design for Asia Awards",
+      "2025 Global Top 10 Award and GDA Winner, HKDA Global Design Awards",
+    ],
+    accent: "shiqing",
+  },
+  {
+    name: "Dr. Giovanni Lion",
+    role: "AI Engineer",
+    title: "Visiting Lecturer, PolyU",
+    bio: "Researcher and developer in the field of generative AI and storytelling. 15+ years experience in multiple languages and platforms.",
+    awards: [],
+    accent: "gold",
+  },
+  {
+    name: "Ziyi Cao",
+    role: "Product Lead",
+    title: "PolyU Master Student",
+    bio: "Experience in product operations and user research; strong multimedia and interaction-design foundation.",
+    awards: [
+      "2026 Recycling Fund's 10th Anniversary Design Competition Runner-up",
+    ],
+    accent: "shiqing",
+  },
+  {
+    name: "Xi Jin",
+    role: "System Engineer",
+    title: "PolyU",
+    bio: "Hands-on experience in interactive system productivity and user-tool development. 6-month internship at Xinguodao (tool design & iteration).",
+    awards: [
+      "Independent game developer · multiple Game Jam participations",
+    ],
+    accent: "gold",
+  },
+  {
+    name: "Linjie Yin",
+    role: "Designer",
+    title: "Design and Research Assistant, PolyU Design",
+    bio: "Rich experience in human-computer interaction design; international industrial experience in user-interface and experience design.",
+    awards: [
+      "2026 Recycling Fund's 10th Anniversary Design Competition Runner-up",
+    ],
+    accent: "shiqing",
+  },
+];
+---
+
+<section class="section team" id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Team</div>
+      <h2 class="section-title">MedTech Lab, School of Design, PolyU.</h2>
+      <p class="section-lede">
+        A multidisciplinary team across design, AI engineering, product and system
+        development — building MaiPal for the next fifty years.
+      </p>
+    </div>
+
+    <div class="team-grid">
+      {team.map(m => (
+        <article class={`member member--${m.accent}`}>
+          <div class="member-tag">{m.role}</div>
+          <div class="member-portrait">
+            <span class="member-initial">{m.name.split(" ").slice(-1)[0][0]}</span>
+          </div>
+          <h3>{m.name}</h3>
+          <div class="member-title">{m.title}</div>
+          <p>{m.bio}</p>
+          {m.awards.length > 0 && (
+            <ul class="awards">
+              {m.awards.map(a => <li>{a}</li>)}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .team { padding-top: 56px; padding-bottom: 80px; }
+  .section-head { max-width: 760px; margin: 0 auto 48px; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0 0 18px;
+  }
+  .section-lede {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--ink-muted);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+  .member {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1.18px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(107, 93, 79, 0.06);
+    backdrop-filter: blur(4px);
+    transition: transform 250ms var(--ease), box-shadow 250ms var(--ease);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .member:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(107, 93, 79, 0.14);
+  }
+  .member-tag {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+  }
+  .member--shiqing .member-tag {
+    background: rgba(123, 140, 118, 0.14);
+    color: var(--shiqing);
+  }
+  .member--gold .member-tag {
+    background: rgba(212, 165, 116, 0.14);
+    color: var(--xuanzhi-dark);
+  }
+  .member-portrait {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(123, 140, 118, 0.22) 0%, rgba(255, 255, 255, 0.92) 100%);
+    border: 1.18px solid var(--hairline);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 16px rgba(107, 93, 79, 0.12);
+  }
+  .member--gold .member-portrait {
+    background: linear-gradient(135deg, rgba(212, 165, 116, 0.22) 0%, rgba(255, 255, 255, 0.92) 100%);
+  }
+  .member-initial {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--shiqing);
+  }
+  .member--gold .member-initial { color: var(--xuanzhi-dark); }
+  .member h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+  .member-title {
+    font-size: 12px;
+    color: var(--shiqing);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .member--gold .member-title { color: var(--xuanzhi-dark); }
+  .member p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    margin: 0 0 12px;
+  }
+  .awards {
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0;
+    border-top: 1.18px solid var(--hairline);
+    padding-top: 12px;
+    text-align: left;
+    width: 100%;
+  }
+  .awards li {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    padding: 3px 0;
+    position: relative;
+    padding-left: 14px;
+  }
+  .awards li::before {
+    content: "★";
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 11px;
+  }
+
+  @media (max-width: 1100px) { .team-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 720px)  { .team-grid { grid-template-columns: repeat(2, 1fr); }
+                                .section-title { font-size: 26px; } }
+  @media (max-width: 480px)  { .team-grid { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,461 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const slides = [
+  {
+    id: "title",
+    kind: "image",
+    src: "/slides/01-title.png",
+    title: "MaiPal 脉伴",
+    subtitle: "Intelligent Traditional Chinese Medicine Health Companion Agent",
+    meta: "MedTech Lab · School of Design · PolyU",
+  },
+  {
+    id: "background",
+    kind: "image",
+    src: "/slides/02-background.png",
+    title: "Background",
+    subtitle: "1.2 billion Chinese speakers · 45–64 age group · sub-health stage",
+  },
+  {
+    id: "problem",
+    kind: "image",
+    src: "/slides/03-problem.png",
+    title: "The Problem",
+    subtitle: "Physical decline and rising health anxiety — a moment for intervention",
+  },
+  {
+    id: "solution",
+    kind: "image",
+    src: "/slides/04-solution.png",
+    title: "Our Solution",
+    subtitle: "An AI TCM doctor for everyday life · 为了下一个五十年",
+  },
+  {
+    id: "product",
+    kind: "image",
+    src: "/slides/05-product.png",
+    title: "The Product",
+    subtitle: "Digitizing 望闻问切 — the Four Diagnostic Methods",
+  },
+  {
+    id: "demo-face",
+    kind: "video",
+    src: "/slides/demo-face-tongue.gif",
+    title: "Demo · 面诊 & 舌诊",
+    subtitle: "Face and tongue diagnosis platform",
+  },
+  {
+    id: "demo-voice",
+    kind: "video",
+    src: "/slides/demo-voice.gif",
+    title: "Demo · AI 语音助手",
+    subtitle: "Real-time speech recognition and synthesis",
+  },
+  {
+    id: "traction",
+    kind: "image",
+    src: "/slides/06-traction.png",
+    title: "Traction & Progress",
+    subtitle: "Technical implementation · 20+ user tests · clinical collaboration",
+  },
+  {
+    id: "business",
+    kind: "image",
+    src: "/slides/07-business-model.png",
+    title: "Business Model Canvas",
+    subtitle: "Partners · activities · channels · revenue",
+  },
+  {
+    id: "ecosystem",
+    kind: "image",
+    src: "/slides/08-ecosystem.png",
+    title: "Ecosystem",
+    subtitle: "Subscription · clinic referrals · e-commerce mall",
+  },
+  {
+    id: "market",
+    kind: "image",
+    src: "/slides/09-market.png",
+    title: "Market Sizes & Milestones",
+    subtitle: "TAM · SAM · SOM · three-phase rollout from Hong Kong to mainland China",
+  },
+  {
+    id: "team",
+    kind: "image",
+    src: "/slides/10-team.png",
+    title: "Team",
+    subtitle: "MedTech Lab · School of Design · PolyU",
+  },
+];
+
+const slidesJson = JSON.stringify(slides);
+---
+
+<Layout
+  title="MaiPal · 脉伴 · Slideshow"
+  description="Annual show slideshow presentation for MaiPal — auto-cycling TV-friendly deck."
+  bodyClass="slideshow-body"
+>
+  <main class="stage" data-slides={slidesJson}>
+    <div class="stage-bg" aria-hidden="true"></div>
+
+    <header class="stage-header">
+      <div class="stage-brand">
+        <span class="brand-glyph brush">脉</span>
+        <div>
+          <div class="brand-name">MaiPal · 脉伴</div>
+          <div class="brand-sub">Intelligent TCM Health Companion · Annual Show</div>
+        </div>
+      </div>
+      <div class="stage-controls" aria-label="Slideshow controls">
+        <button class="ctrl" id="prev" type="button" aria-label="Previous">‹</button>
+        <button class="ctrl ctrl-play" id="play" type="button" aria-label="Play / Pause">
+          <span class="ico-play">▶</span>
+          <span class="ico-pause">❙❙</span>
+        </button>
+        <button class="ctrl" id="next" type="button" aria-label="Next">›</button>
+        <button class="ctrl ctrl-fs" id="fs" type="button" aria-label="Fullscreen">⛶</button>
+      </div>
+    </header>
+
+    <section class="stage-screen">
+      {slides.map((s, i) => (
+        <article class={`slide ${i === 0 ? "is-active" : ""}`} data-index={i} data-kind={s.kind} aria-hidden={i === 0 ? "false" : "true"}>
+          <div class="slide-frame">
+            <img src={s.src} alt={s.title} class="slide-media" />
+          </div>
+          <div class="slide-caption">
+            <div class="cap-title brush">{s.title}</div>
+            <div class="cap-sub">{s.subtitle}</div>
+            {s.meta && <div class="cap-meta">{s.meta}</div>}
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <footer class="stage-foot">
+      <div class="progress" aria-hidden="true">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="indicators">
+        {slides.map((s, i) => (
+          <button class={`pip ${i === 0 ? "is-active" : ""}`} data-jump={i} aria-label={`Go to slide ${i + 1} — ${s.title}`} type="button"></button>
+        ))}
+      </div>
+      <div class="counter">
+        <span id="counter-now">1</span> / <span id="counter-total">{slides.length}</span>
+      </div>
+    </footer>
+  </main>
+</Layout>
+
+<style is:global>
+  body.slideshow-body {
+    background: #0e1410;
+    color: #f3eee6;
+    overflow: hidden;
+    height: 100vh;
+  }
+</style>
+
+<style>
+  .stage {
+    position: relative;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+  }
+  .stage-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(123, 140, 118, 0.25) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(212, 165, 116, 0.18) 0%, transparent 55%),
+      linear-gradient(135deg, #0e1410 0%, #1a1d18 50%, #15110c 100%);
+    z-index: 0;
+  }
+  .stage-header,
+  .stage-screen,
+  .stage-foot { position: relative; z-index: 2; }
+
+  .stage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 36px;
+  }
+  .stage-brand { display: flex; align-items: center; gap: 14px; }
+  .brand-glyph {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, var(--shiqing) 0%, var(--shiqing) 8px, #fff 8px);
+    color: var(--shiqing) !important;
+    filter: none !important;
+    font-size: 28px;
+    text-align: center;
+    line-height: 48px;
+    border: 1.18px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  }
+  .brand-name { font-family: var(--font-display); font-size: 18px; color: #f3eee6; font-weight: 700; }
+  .brand-sub  { font-size: 12px; color: rgba(243, 238, 230, 0.55); margin-top: 2px; letter-spacing: 0.04em; }
+
+  .stage-controls { display: inline-flex; gap: 8px; align-items: center; }
+  .ctrl {
+    width: 44px; height: 44px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #f3eee6;
+    border: 1.18px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+    transition: background 200ms var(--ease), transform 150ms var(--ease);
+  }
+  .ctrl:hover { background: rgba(255, 255, 255, 0.12); }
+  .ctrl:active { transform: scale(0.94); }
+  .ctrl-play {
+    width: 54px; height: 54px;
+    background: var(--shiqing);
+    border-color: var(--shiqing);
+    box-shadow: 0 6px 18px rgba(123, 140, 118, 0.45);
+  }
+  .ctrl-play:hover { background: #8a9b85; }
+  .ctrl-play .ico-pause,
+  .stage.is-playing .ctrl-play .ico-play { display: none; }
+  .stage.is-playing .ctrl-play .ico-pause { display: inline; }
+
+  /* Slides */
+  .stage-screen {
+    position: relative;
+    margin: 0 36px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 20px;
+    padding: 8px 24px 16px;
+    opacity: 0;
+    transform: translateY(16px) scale(0.99);
+    transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+    pointer-events: none;
+  }
+  .slide.is-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  .slide-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #14110b;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide-media {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  .slide-caption { text-align: center; }
+  .cap-title {
+    font-size: 32px;
+    color: #f3eee6 !important;
+    filter: none !important;
+  }
+  .cap-sub {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(243, 238, 230, 0.7);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+  }
+  .cap-meta {
+    font-size: 12px;
+    color: var(--shilv-light);
+    margin-top: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Footer */
+  .stage-foot {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 24px;
+    align-items: center;
+    padding: 18px 36px 24px;
+  }
+  .progress {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--shiqing) 0%, var(--shilv) 100%);
+    transition: width 100ms linear;
+  }
+  .indicators { display: inline-flex; gap: 8px; }
+  .pip {
+    width: 10px; height: 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: none;
+    cursor: pointer;
+    transition: width 200ms var(--ease), background 200ms var(--ease);
+  }
+  .pip:hover { background: rgba(255, 255, 255, 0.25); }
+  .pip.is-active {
+    width: 28px;
+    background: var(--shilv);
+  }
+  .counter {
+    text-align: right;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: rgba(243, 238, 230, 0.75);
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+  .counter span { color: #f3eee6; }
+
+  /* TV / large displays — give the media maximum room */
+  @media (min-width: 1600px) {
+    .stage-header { padding: 28px 56px; }
+    .stage-screen { margin: 0 56px; }
+    .stage-foot { padding: 24px 56px 32px; }
+    .cap-title { font-size: 40px; }
+    .cap-sub { font-size: 18px; }
+  }
+  @media (max-width: 720px) {
+    .stage-header { padding: 16px 20px; }
+    .stage-screen { margin: 0 20px; }
+    .stage-foot { padding: 12px 20px 18px; }
+    .brand-sub { display: none; }
+    .ctrl { width: 38px; height: 38px; font-size: 16px; }
+    .ctrl-play { width: 46px; height: 46px; }
+    .cap-title { font-size: 24px; }
+    .cap-sub { font-size: 13px; }
+  }
+</style>
+
+<script>
+  type Slide = { id: string; kind: string; src: string; title: string; subtitle: string; meta?: string };
+
+  const stage = document.querySelector(".stage") as HTMLElement;
+  if (stage) {
+    const slidesData: Slide[] = JSON.parse(stage.dataset.slides || "[]");
+    const total = slidesData.length;
+
+    const slideEls = Array.from(document.querySelectorAll<HTMLElement>(".slide"));
+    const pipEls = Array.from(document.querySelectorAll<HTMLButtonElement>(".pip"));
+    const progressBar = document.getElementById("progress-bar") as HTMLElement;
+    const counterNow = document.getElementById("counter-now") as HTMLElement;
+    const prevBtn = document.getElementById("prev") as HTMLButtonElement;
+    const nextBtn = document.getElementById("next") as HTMLButtonElement;
+    const playBtn = document.getElementById("play") as HTMLButtonElement;
+    const fsBtn = document.getElementById("fs") as HTMLButtonElement;
+
+    let current = 0;
+    let playing = true;
+    let timer: number | null = null;
+    let elapsed = 0;
+    const STEP = 100; // ms tick
+    const DURATION = 9000; // ms per slide
+
+    function goTo(idx: number) {
+      idx = ((idx % total) + total) % total;
+      slideEls[current].classList.remove("is-active");
+      slideEls[current].setAttribute("aria-hidden", "true");
+      pipEls[current].classList.remove("is-active");
+
+      current = idx;
+      slideEls[current].classList.add("is-active");
+      slideEls[current].setAttribute("aria-hidden", "false");
+      pipEls[current].classList.add("is-active");
+      counterNow.textContent = String(current + 1);
+      elapsed = 0;
+      progressBar.style.width = "0%";
+    }
+
+    function tick() {
+      if (!playing) return;
+      elapsed += STEP;
+      const pct = Math.min(100, (elapsed / DURATION) * 100);
+      progressBar.style.width = pct + "%";
+      if (elapsed >= DURATION) {
+        goTo(current + 1);
+      }
+    }
+
+    function startTimer() {
+      if (timer !== null) window.clearInterval(timer);
+      timer = window.setInterval(tick, STEP);
+    }
+
+    function setPlaying(state: boolean) {
+      playing = state;
+      stage.classList.toggle("is-playing", playing);
+      if (playing) startTimer();
+    }
+
+    prevBtn.addEventListener("click", () => { goTo(current - 1); });
+    nextBtn.addEventListener("click", () => { goTo(current + 1); });
+    playBtn.addEventListener("click", () => { setPlaying(!playing); });
+    pipEls.forEach(pip => {
+      pip.addEventListener("click", () => {
+        const idx = Number(pip.getAttribute("data-jump"));
+        if (Number.isFinite(idx)) goTo(idx);
+      });
+    });
+
+    fsBtn.addEventListener("click", () => {
+      const target = document.documentElement;
+      if (document.fullscreenElement) {
+        document.exitFullscreen?.();
+      } else {
+        target.requestFullscreen?.().catch(() => {});
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
+        e.preventDefault();
+        goTo(current + 1);
+      } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+        e.preventDefault();
+        goTo(current - 1);
+      } else if (e.key === "f" || e.key === "F") {
+        fsBtn.click();
+      } else if (e.key === "p" || e.key === "P" || e.key === "k" || e.key === "K") {
+        setPlaying(!playing);
+      } else if (e.key === "Home") {
+        goTo(0);
+      } else if (e.key === "End") {
+        goTo(total - 1);
+      } else if (/^[1-9]$/.test(e.key)) {
+        const idx = Number(e.key) - 1;
+        if (idx < total) goTo(idx);
+      }
+    });
+
+    setPlaying(true);
+  }
+</script>

@@ -1,0 +1,210 @@
+---
+const technicalImplementations = [
+  {
+    title: "AI doctor dialogue",
+    body: "Built on a real TCM knowledge database to simulate authentic consultation.",
+  },
+  {
+    title: "Real-time speech recognition",
+    body: "User speech is transcribed and the AI reply is synthesized to speech in real time.",
+  },
+  {
+    title: "Face & tongue recognition",
+    body: "Image-based extraction generates a professional TCM diagnostic report.",
+  },
+];
+
+const userTestRounds = [
+  { round: "Round 1", focus: "Framework Recognition" },
+  { round: "Round 2", focus: "Trust Issues" },
+  { round: "Round 3", focus: "Interaction Experience" },
+  { round: "Round 4", focus: "Adherence & Long-term Use" },
+];
+---
+
+<section class="section traction" id="traction">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Traction & Progress</div>
+      <h2 class="section-title">From research database to clinical collaboration.</h2>
+    </div>
+
+    <div class="trac-grid">
+      <article class="trac-card trac-tech">
+        <div class="trac-tag">Technical Implementation</div>
+        <div class="trac-list">
+          {technicalImplementations.map(t => (
+            <div class="trac-item">
+              <div class="trac-dot"></div>
+              <div>
+                <div class="trac-it-title">{t.title}</div>
+                <p>{t.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </article>
+
+      <article class="trac-card trac-users">
+        <div class="trac-tag trac-tag--gold">User Testing</div>
+        <div class="trac-big">20+</div>
+        <p class="trac-sub">Participants from mainland China and Hong Kong, across four iterative rounds.</p>
+        <ul class="trac-rounds">
+          {userTestRounds.map(r => (
+            <li>
+              <span class="rd-num">{r.round}</span>
+              <span class="rd-focus">{r.focus}</span>
+            </li>
+          ))}
+        </ul>
+      </article>
+
+      <article class="trac-card trac-clinic">
+        <div class="trac-tag">Clinical Collaboration</div>
+        <div class="clinic-person">
+          <div class="clinic-avatar">
+            <span class="brush">范</span>
+          </div>
+          <div>
+            <div class="clinic-name">Dr. Lian Fan, MD</div>
+            <div class="clinic-role">Director Physician · Doctoral Supervisor</div>
+          </div>
+        </div>
+        <p>
+          Secured clinical collaboration to validate our TCM-based AI solution and its
+          potential in preventive care — bridging Chinese and Western medicine.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .traction { padding-top: 56px; padding-bottom: 80px; }
+  .section-head { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+  .section-head .eyebrow { margin-bottom: 16px; }
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0;
+  }
+  .trac-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+  .trac-card {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1.18px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: 0 4px 14px rgba(107, 93, 79, 0.08);
+    backdrop-filter: blur(4px);
+  }
+  .trac-tag {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(123, 140, 118, 0.12);
+    color: var(--shiqing);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    margin-bottom: 20px;
+  }
+  .trac-tag--gold {
+    background: rgba(212, 165, 116, 0.16);
+    color: var(--xuanzhi-dark);
+  }
+  .trac-list { display: flex; flex-direction: column; gap: 16px; }
+  .trac-item {
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .trac-dot {
+    width: 10px; height: 10px;
+    border-radius: 999px;
+    background: var(--shiqing);
+    margin-top: 8px;
+    box-shadow: 0 0 0 4px rgba(123,140,118,0.16);
+  }
+  .trac-it-title {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .trac-item p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+  .trac-big {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 78px;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .trac-sub {
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    margin: 0 0 18px;
+  }
+  .trac-rounds { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .trac-rounds li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(232, 193, 124, 0.08);
+    font-size: 13px;
+  }
+  .rd-num {
+    color: var(--xuanzhi-dark);
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+  }
+  .rd-focus { color: var(--ink); }
+
+  .clinic-person {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .clinic-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--shiqing) 0%, #5d6f57 100%);
+    color: #fff !important;
+    text-align: center;
+    line-height: 56px;
+    font-size: 28px;
+    box-shadow: 0 6px 14px rgba(123, 140, 118, 0.3);
+  }
+  .clinic-avatar .brush { color: #fff !important; filter: none !important; font-size: 32px; }
+  .clinic-name { font-weight: 600; font-size: 16px; color: var(--ink); }
+  .clinic-role { font-size: 12px; color: var(--ink-muted); margin-top: 4px; }
+  .trac-clinic p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+
+  @media (max-width: 920px) {
+    .trac-grid { grid-template-columns: 1fr; }
+  }
+</style>
