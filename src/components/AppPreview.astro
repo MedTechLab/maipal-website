@@ -4,29 +4,36 @@ const steps = [
     n: "01",
     title: "你好呀",
     en: "Greeting",
-    body: "脉医生 greets the user by name with a sentence-final 呀 — soft and never clinical.",
+    body: "脉医生 greets the user by name with a sentence-final 呀 — soft and never clinical. OAuth login with Google, Apple or Microsoft.",
     bubble: "你好呀，今天需要脉医生帮你看一下身体状况吗？",
   },
   {
     n: "02",
     title: "我先看看您的气色",
-    en: "Face observation · 望诊",
-    body: "Front camera observes complexion, vitality and skin tone. Hedged readings — never sweeping diagnoses.",
-    bubble: "我看您今天气色略偏淡。",
+    en: "Face & tongue · 望诊",
+    body: "LLM Vision analyzes complexion, vitality, dark circles, puffiness and tongue coating in real time. Structured JSON output feeds the doctor's reasoning.",
+    bubble: "我看您今天气色略偏淡，舌苔薄白，齿痕轻。",
   },
   {
     n: "03",
     title: "听听您的声音",
-    en: "Voice listening · 闻诊",
-    body: "MaiPal listens to natural speech rather than asking the user to perform.",
-    bubble: "声音里能听出一些疲倦。最近睡得好吗？",
+    en: "Voice acoustics · 闻诊",
+    body: "Web Audio API extracts F0 pitch, volume dB, jitter, spectral tilt and pause count — real acoustic analysis, no Python needed.",
+    bubble: "声音稍低微，语速偏慢，换气偏多。中气略有不足。",
   },
   {
     n: "04",
     title: "今天的调理",
     en: "Daily plan · 调理计划",
-    body: "A 7-day TCM plan with photo check-ins — each grants 10 积分, redeemable in the clinic store.",
-    bubble: "今天的调理：清晨一杯温水，午后散步三十分钟。",
+    body: "A 7-day TCM plan with photo check-ins, learning links and guided meditation audio. Each task earns 10 积分 redeemable at the clinic store.",
+    bubble: "早上：枸杞红枣茶 · 午后：散步30分钟 · 晚上：足浴泡脚",
+  },
+  {
+    n: "05",
+    title: "中医馆",
+    en: "Clinic store · 医馆",
+    body: "Curated herbal products from HKTVmall & Eu Yan Sang with one-tap purchase. Partner clinic directory with navigation, booking and real-time ratings.",
+    bubble: "虫草党参益气鸡汤 HK$188 — 点击去购买",
   },
 ];
 ---
@@ -122,20 +129,20 @@ const steps = [
           <img src="/slides/demo-face-tongue.gif" alt="Live demo of face & tongue diagnosis interface" loading="lazy" />
         </div>
         <div class="demo-meta">
-          <div class="eyebrow">Demo · 面诊 / 舌诊</div>
-          <h3>Recognize face and tongue</h3>
-          <p>The intelligent diagnosis platform extracts relevant information from face and tongue images, then generates a professional TCM report.</p>
+          <div class="eyebrow">Demo · 望诊 (LLM Vision)</div>
+          <h3>Face & tongue analysis via AI vision</h3>
+          <p>LLM Vision model directly analyzes facial complexion, eye condition, skin texture, tongue color, coating and sublingual veins — outputting structured TCM diagnostic JSON for the doctor's reasoning chain.</p>
         </div>
       </article>
 
       <article class="demo">
         <div class="demo-screen demo-screen--voice">
-          <img src="/slides/demo-voice.gif" alt="Live demo of AI voice assistant interface" loading="lazy" />
+          <img src="/slides/demo-voice.gif" alt="Live demo of voice acoustic analysis" loading="lazy" />
         </div>
         <div class="demo-meta">
-          <div class="eyebrow">Demo · AI 语音助手</div>
-          <h3>Real-time speech recognition</h3>
-          <p>Browser-native APIs convert user speech, run AI dialogue and synthesize the doctor's reply — all in real time.</p>
+          <div class="eyebrow">Demo · 闻诊 (Web Audio API)</div>
+          <h3>Real-time acoustic voice analysis</h3>
+          <p>Browser-side Web Audio API extracts pitch (F0), intensity (dB), jitter, spectral tilt and pause frequency from natural speech — replacing Python Praat with pure JavaScript acoustics for instant TCM auscultation.</p>
         </div>
       </article>
     </div>
