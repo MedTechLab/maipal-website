@@ -21,6 +21,9 @@
         <a class="btn btn-primary" href="https://api.maipal.org/">See the app</a>
         <a class="btn btn-ghost" href="/slideshow">Open slideshow</a>
       </div>
+      <div class="hero-qr">
+        <img src="/assets/maipal-qr.jpg" alt="MaiPal QR code" loading="lazy" />
+      </div>
       <div class="hero-meta">
         <span>app.maipal.org · coming soon</span>
         <span class="dot" aria-hidden="true">·</span>
@@ -92,7 +95,17 @@
     max-width: 460px;
     margin: 0 0 32px;
   }
-  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .hero-qr { margin-bottom: 24px; }
+  .hero-qr img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(86, 64, 38, 0.12);
+  }
   .hero-meta {
     display: inline-flex;
     align-items: center;
