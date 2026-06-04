@@ -13,6 +13,11 @@ const team = [
       "2024 Bronze Award, DFA Design for Asia Awards",
       "2025 Global Top 10 Award and GDA Winner, HKDA Global Design Awards",
     ],
+    awardsI18n: [
+      "team.m1.award1",
+      "team.m1.award2",
+      "team.m1.award3",
+    ],
     accent: "shiqing",
   },
   {
@@ -24,6 +29,7 @@ const team = [
     bio: "Researcher and developer in the field of generative AI and storytelling. 15+ years experience in multiple languages and platforms.",
     bioI18n: "team.m2.bio",
     awards: [],
+    awardsI18n: [],
     accent: "gold",
   },
   {
@@ -36,6 +42,9 @@ const team = [
     bioI18n: "team.m3.bio",
     awards: [
       "2026 Recycling Fund's 10th Anniversary Design Competition Runner-up",
+    ],
+    awardsI18n: [
+      "team.m3.award1",
     ],
     accent: "shiqing",
   },
@@ -50,6 +59,9 @@ const team = [
     awards: [
       "Independent game developer · multiple Game Jam participations",
     ],
+    awardsI18n: [
+      "team.m4.award1",
+    ],
     accent: "gold",
   },
   {
@@ -62,6 +74,9 @@ const team = [
     bioI18n: "team.m5.bio",
     awards: [
       "2026 Recycling Fund's 10th Anniversary Design Competition Runner-up",
+    ],
+    awardsI18n: [
+      "team.m5.award1",
     ],
     accent: "shiqing",
   },
@@ -91,7 +106,7 @@ const team = [
           <p data-i18n={m.bioI18n}>{m.bio}</p>
           {m.awards.length > 0 && (
             <ul class="awards">
-              {m.awards.map(a => <li>{a}</li>)}
+              {m.awards.map((a, i) => <li data-i18n={m.awardsI18n[i]}>{a}</li>)}
             </ul>
           )}
         </article>

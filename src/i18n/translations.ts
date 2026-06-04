@@ -170,6 +170,19 @@ export const translations: Record<string, Record<string, string>> = {
     "team.m5.title": "Design and Research Assistant, PolyU Design",
     "team.m5.bio": "Rich experience in human-computer interaction design; international industrial experience in user-interface and experience design.",
 
+    // Promo Video
+    "promo.eyebrow": "Our Story",
+    "promo.title": "Introducing MaiPal \u00b7 \u8109\u4f34",
+    "promo.lede": "Meet the AI wellness companion designed to guide Chinese-speaking adults through the sub-health stage with Traditional Chinese Medicine wisdom.",
+
+    // Team Awards
+    "team.m1.award1": "2023 RED DOT Award winner",
+    "team.m1.award2": "2024 Bronze Award, DFA Design for Asia Awards",
+    "team.m1.award3": "2025 Global Top 10 Award and GDA Winner, HKDA Global Design Awards",
+    "team.m3.award1": "2026 Recycling Fund\u2019s 10th Anniversary Design Competition Runner-up",
+    "team.m4.award1": "Independent game developer \u00b7 multiple Game Jam participations",
+    "team.m5.award1": "2026 Recycling Fund\u2019s 10th Anniversary Design Competition Runner-up",
+
     // Footer
     "foot.sub": "Your TCM Health Companion",
     "foot.col1.h": "Project",
@@ -235,7 +248,7 @@ export const translations: Record<string, Record<string, string>> = {
 
     // Solution
     "sol.eyebrow": "\u89e3\u51b3\u65b9\u6848",
-    "sol.title": "\u4e00\u4f4d\u6570\u5b57\u4e2d\u533b\uff0c\u8ba9\u4f60<em>\u6162\u4e0b\u6765</em>\uff0c\u800c\u4e0d\u662f\u8fd9\u7ba1\u9001\u8fdb\u53bb\u3002",
+    "sol.title": "\u4e00\u4f4d\u6570\u5b57\u4e2d\u533b\uff0c\u8ba9\u4f60<em>\u6162\u4e0b\u6765</em>\uff0c\u800c\u975e\u628a\u4f60\u8d76\u8fdb\u6d41\u6c34\u7ebf\u3002",
     "sol.lede1": "MaiPal \u901a\u8fc7\u4e00\u4f4d\u5177\u6709\u5171\u60c5\u529b\u7684 AI \u4e2d\u533b\u5c06\u771f\u5b9e\u7684\u4e2d\u533b\u667a\u6167\u878d\u5165\u65e5\u5e38\u751f\u6d3b\u3002\u7528\u6237\u53ef\u4ee5\u901a\u8fc7\u6e29\u6696\u81ea\u7136\u7684\u5bf9\u8bdd\uff0c\u5728\u4e0d\u77e5\u4e0d\u89c9\u4e2d\u4f53\u9a8c<strong>\u671b\u95fb\u95ee\u5207</strong>\u7684\u7cbe\u9ad3\u2014\u2014\u6beb\u65e0\u4e34\u5e8a\u611f\u3002",
     "sol.lede2": "\u4e00\u4f4d\u503c\u5f97\u4fe1\u8d56\u7684\u957f\u671f\u5065\u5eb7\u4f19\u4f34\uff0c\u800c\u975e\u53c8\u4e00\u6b3e\u533b\u7597 App\u3002",
     "sol.quote.en": "\u4e3a\u4e86\u4e0b\u4e00\u4e2a\u4e94\u5341\u5e74\u3002",
@@ -357,6 +370,19 @@ export const translations: Record<string, Record<string, string>> = {
     "team.m5.role": "\u8bbe\u8ba1\u5e08",
     "team.m5.title": "\u9999\u6e2f\u7406\u5de5\u5927\u5b66\u8bbe\u8ba1\u7814\u7a76\u52a9\u7406",
     "team.m5.bio": "\u5728\u4eba\u673a\u4ea4\u4e92\u8bbe\u8ba1\u65b9\u9762\u62e5\u6709\u4e30\u5bcc\u7ecf\u9a8c\uff0c\u5177\u5907\u7528\u6237\u754c\u9762\u4e0e\u4f53\u9a8c\u8bbe\u8ba1\u7684\u56fd\u9645\u5de5\u4e1a\u7ecf\u9a8c\u3002",
+
+    // Promo Video
+    "promo.eyebrow": "\u6211\u4eec\u7684\u6545\u4e8b",
+    "promo.title": "\u8ba4\u8bc6 MaiPal \u00b7 \u8109\u4f34",
+    "promo.lede": "\u8ba4\u8bc6\u8fd9\u4f4d AI \u5065\u5eb7\u4f34\u4fa3\uff0c\u4e13\u4e3a\u534e\u8bed\u6210\u5e74\u4eba\u5bfc\u822a\u4e9a\u5065\u5eb7\u9636\u6bb5\uff0c\u4ee5\u4e2d\u533b\u667a\u6167\u5b88\u62a4\u5065\u5eb7\u3002",
+
+    // Team Awards
+    "team.m1.award1": "2023 \u7ea2\u70b9\u8bbe\u8ba1\u5956\u5f97\u4e3b",
+    "team.m1.award2": "2024 \u4e9a\u6d32\u6700\u5177\u5f71\u54cd\u529b\u8bbe\u8ba1\u5956\u94dc\u5956",
+    "team.m1.award3": "2025 \u9999\u6e2f\u8bbe\u8ba1\u5e08\u534f\u4f1a\u5168\u7403\u8bbe\u8ba1\u5956\u5168\u7403\u5341\u5927\u53ca GDA \u5f97\u4e3b",
+    "team.m3.award1": "2026 \u56de\u6536\u57fa\u91d1\u5341\u5468\u5e74\u8bbe\u8ba1\u6bd4\u8d5b\u4e9a\u519b",
+    "team.m4.award1": "\u72ec\u7acb\u6e38\u620f\u5f00\u53d1\u8005 \u00b7 \u591a\u6b21\u53c2\u52a0 Game Jam",
+    "team.m5.award1": "2026 \u56de\u6536\u57fa\u91d1\u5341\u5468\u5e74\u8bbe\u8ba1\u6bd4\u8d5b\u4e9a\u519b",
 
     // Footer
     "foot.sub": "\u60a8\u7684\u4e2d\u533b\u5065\u5eb7\u4f34\u4fa3",
