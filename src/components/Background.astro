@@ -1,46 +1,36 @@
 ---
-// A funnel: the broad market → the life stage we serve → the market we launch in.
-const stats = [
-  {
-    big: "1.2B",
-    label: "Chinese speakers worldwide",
-    detail: "The world's largest single-language population — and the cultural home of Traditional Chinese Medicine (Ethnologue 2026).",
-  },
-  {
-    big: "45–64",
-    label: "The sub-health window",
-    detail: "The life stage where bodily function quietly declines and health awareness sharpens — exactly when preventive care matters most.",
-  },
-  {
-    big: "2.25M",
-    label: "Hong Kong — our launch market",
-    detail: "Adults aged 45–64 in Hong Kong, nearly a third of the city — our beachhead before expanding across Greater China (HK Population Projections 2022–2046).",
-  },
-];
 ---
 
 <section class="section bg-section" id="background">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Background</div>
-      <h2 class="section-title">
+      <div class="eyebrow" data-i18n="bg.eyebrow">Background</div>
+      <h2 class="section-title" data-i18n="bg.title">
         A generation reaching the age where prevention matters most.
       </h2>
-      <p class="section-lede">
-        Chinese-speaking adults aged 45–64, in mainland China, Hong Kong and Chinese
-        communities worldwide, are entering the sub-health stage — and increasingly
+      <p class="section-lede" data-i18n="bg.lede">
+        Chinese-speaking adults aged 45&ndash;64, in mainland China, Hong Kong and Chinese
+        communities worldwide, are entering the sub-health stage &mdash; and increasingly
         value preventive care rooted in <strong>Traditional Chinese Medicine</strong>.
       </p>
     </div>
 
     <div class="stat-grid">
-      {stats.map(s => (
-        <article class="stat">
-          <div class="stat-big">{s.big}</div>
-          <div class="stat-label">{s.label}</div>
-          <p class="stat-detail">{s.detail}</p>
-        </article>
-      ))}
+      <article class="stat">
+        <div class="stat-big" data-i18n="bg.stat1.big">1.2B</div>
+        <div class="stat-label" data-i18n="bg.stat1.label">Chinese speakers worldwide</div>
+        <p class="stat-detail" data-i18n="bg.stat1.detail">The world&rsquo;s largest single-language population &mdash; and the cultural home of Traditional Chinese Medicine (Ethnologue 2026).</p>
+      </article>
+      <article class="stat">
+        <div class="stat-big" data-i18n="bg.stat2.big">45&ndash;64</div>
+        <div class="stat-label" data-i18n="bg.stat2.label">The sub-health window</div>
+        <p class="stat-detail" data-i18n="bg.stat2.detail">The life stage where bodily function quietly declines and health awareness sharpens &mdash; exactly when preventive care matters most.</p>
+      </article>
+      <article class="stat">
+        <div class="stat-big" data-i18n="bg.stat3.big">2.25M</div>
+        <div class="stat-label" data-i18n="bg.stat3.label">Hong Kong &mdash; our launch market</div>
+        <p class="stat-detail" data-i18n="bg.stat3.detail">Adults aged 45&ndash;64 in Hong Kong, nearly a third of the city &mdash; our beachhead before expanding across Greater China (HK Population Projections 2022&ndash;2046).</p>
+      </article>
     </div>
   </div>
 </section>

@@ -1,11 +1,11 @@
 ---
 const pillars = [
-  { label: "Habit Building",        cn: "习惯养成" },
-  { label: "Wellness Regulation",   cn: "调理身心" },
-  { label: "Prevention",            cn: "未病先防" },
-  { label: "Emotional Support",     cn: "心绪相伴" },
-  { label: "Tech Accessibility",    cn: "科技亲和" },
-  { label: "Quality of Life",       cn: "生活之美" },
+  { label: "Habit Building",        cn: "习惯养成", i18n: "sol.pillar1" },
+  { label: "Wellness Regulation",   cn: "调理身心", i18n: "sol.pillar2" },
+  { label: "Prevention",            cn: "未病先防", i18n: "sol.pillar3" },
+  { label: "Emotional Support",     cn: "心绪相伴", i18n: "sol.pillar4" },
+  { label: "Tech Accessibility",    cn: "科技亲和", i18n: "sol.pillar5" },
+  { label: "Quality of Life",       cn: "生活之美", i18n: "sol.pillar6" },
 ];
 ---
 
@@ -13,23 +13,23 @@ const pillars = [
   <div class="wrap">
     <div class="solution-grid">
       <div class="solution-copy">
-        <div class="eyebrow">Our Solution</div>
-        <h2 class="section-title">
+        <div class="eyebrow" data-i18n="sol.eyebrow">Our Solution</div>
+        <h2 class="section-title" data-i18n="sol.title">
           A digital TCM doctor that <em>slows you down</em>, not funnels you through.
         </h2>
-        <p class="lede">
+        <p class="lede" data-i18n="sol.lede1">
           MaiPal brings authentic Traditional Chinese Medicine wisdom into everyday life
           through an empathetic AI practitioner. Users enjoy warm, natural
           conversations that quietly deliver the essence of <strong>望闻问切</strong>
           — without any clinical feel.
         </p>
-        <p class="lede">
+        <p class="lede" data-i18n="sol.lede2">
           A trusted, long-term health friend rather than another medical app.
         </p>
         <div class="solution-quote brush">
           为了下一个五十年。
         </div>
-        <div class="solution-quote-en">For the next 50 years.</div>
+        <div class="solution-quote-en" data-i18n="sol.quote.en">For the next 50 years.</div>
       </div>
 
       <div class="hex-wheel" aria-hidden="false" aria-label="Six pillars of MaiPal">
@@ -39,7 +39,7 @@ const pillars = [
         {pillars.map((p, i) => (
           <div class={`hex-pillar pillar-${i + 1}`}>
             <div class="hex-shape">
-              <span class="hex-label">{p.label}</span>
+              <span class="hex-label" data-i18n={p.i18n}>{p.label}</span>
               <span class="hex-cn">{p.cn}</span>
             </div>
           </div>

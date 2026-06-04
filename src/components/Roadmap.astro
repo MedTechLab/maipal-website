@@ -1,72 +1,72 @@
 ---
-const phases = [
-  {
-    n: "MVP",
-    when: "0–6 months",
-    title: "Free MVP",
-    body: "Validate product-market fit in Hong Kong. Core 望闻问切 dialogue and daily plan.",
-    accent: "shiqing",
-  },
-  {
-    n: "Growth",
-    when: "6–12 months",
-    title: "Hospital & Healthcare",
-    body: "Premium tier opens. Clinic partnerships and verified Chinese-medicine practitioners.",
-    accent: "gold",
-  },
-  {
-    n: "Ecosystem",
-    when: "12–24 months",
-    title: "TCM E-commerce & Education",
-    body: "Closed-loop wellness products, insurance partnerships, education content for long-term care.",
-    accent: "shiqing",
-  },
-];
-
-const markets = [
-  { phase: "Phase 1", year: "2026", focus: "Hong Kong as Foundation", body: "Establish product-market fit and operational model in the initial launch market." },
-  { phase: "Phase 2", year: "2028", focus: "Greater Bay Area Expansion", body: "Leverage Hong Kong experience to rapidly expand into major cities of the Pearl River Delta." },
-  { phase: "Phase 3", year: "2030", focus: "Tier 1 & 2 Cities, Mainland China", body: "Replicate the Hong Kong coverage model across mainland Chinese tier-1 and tier-2 cities." },
-];
 ---
 
 <section class="section roadmap" id="roadmap">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Ecosystem & Roadmap</div>
-      <h2 class="section-title">A three-phase path from Hong Kong outward.</h2>
+      <div class="eyebrow" data-i18n="road.eyebrow">Ecosystem & Roadmap</div>
+      <h2 class="section-title" data-i18n="road.title">A three-phase path from Hong Kong outward.</h2>
     </div>
 
     <div class="roadmap-block">
-      <h3 class="block-h">Ecosystem development</h3>
+      <h3 class="block-h" data-i18n="road.eco.h">Ecosystem development</h3>
       <div class="phases">
-        {phases.map((p, i) => (
-          <div class={`phase phase--${p.accent}`}>
-            <div class="phase-rail">
-              <div class="phase-dot">{i + 1}</div>
-              {i < phases.length - 1 && <div class="phase-line"></div>}
-            </div>
-            <div class="phase-body">
-              <div class="phase-when">{p.n} · {p.when}</div>
-              <h4>{p.title}</h4>
-              <p>{p.body}</p>
-            </div>
+        <div class="phase phase--shiqing">
+          <div class="phase-rail">
+            <div class="phase-dot">1</div>
+            <div class="phase-line"></div>
           </div>
-        ))}
+          <div class="phase-body">
+            <div class="phase-when" data-i18n="road.p1.when">MVP · 0–6 months</div>
+            <h4 data-i18n="road.p1.title">Free MVP</h4>
+            <p data-i18n="road.p1.body">Validate product-market fit in Hong Kong. Core 望闻问切 dialogue and daily plan.</p>
+          </div>
+        </div>
+        <div class="phase phase--gold">
+          <div class="phase-rail">
+            <div class="phase-dot">2</div>
+            <div class="phase-line"></div>
+          </div>
+          <div class="phase-body">
+            <div class="phase-when" data-i18n="road.p2.when">Growth · 6–12 months</div>
+            <h4 data-i18n="road.p2.title">Hospital & Healthcare</h4>
+            <p data-i18n="road.p2.body">Premium tier opens. Clinic partnerships and verified Chinese-medicine practitioners.</p>
+          </div>
+        </div>
+        <div class="phase phase--shiqing">
+          <div class="phase-rail">
+            <div class="phase-dot">3</div>
+          </div>
+          <div class="phase-body">
+            <div class="phase-when" data-i18n="road.p3.when">Ecosystem · 12–24 months</div>
+            <h4 data-i18n="road.p3.title">TCM E-commerce & Education</h4>
+            <p data-i18n="road.p3.body">Closed-loop wellness products, insurance partnerships, education content for long-term care.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="roadmap-block">
-      <h3 class="block-h">Market expansion</h3>
+      <h3 class="block-h" data-i18n="road.mkt.h">Market expansion</h3>
       <div class="markets">
-        {markets.map((m, i) => (
-          <article class="market">
-            <div class="market-year">{m.year}</div>
-            <div class="market-tag">{m.phase}</div>
-            <h4>{m.focus}</h4>
-            <p>{m.body}</p>
-          </article>
-        ))}
+        <article class="market">
+          <div class="market-year">2026</div>
+          <div class="market-tag" data-i18n="road.m1.phase">Phase 1</div>
+          <h4 data-i18n="road.m1.focus">Hong Kong as Foundation</h4>
+          <p data-i18n="road.m1.body">Establish product-market fit and operational model in the initial launch market.</p>
+        </article>
+        <article class="market">
+          <div class="market-year">2028</div>
+          <div class="market-tag" data-i18n="road.m2.phase">Phase 2</div>
+          <h4 data-i18n="road.m2.focus">Greater Bay Area Expansion</h4>
+          <p data-i18n="road.m2.body">Leverage Hong Kong experience to rapidly expand into major cities of the Pearl River Delta.</p>
+        </article>
+        <article class="market">
+          <div class="market-year">2030</div>
+          <div class="market-tag" data-i18n="road.m3.phase">Phase 3</div>
+          <h4 data-i18n="road.m3.focus">Tier 1 & 2 Cities, Mainland China</h4>
+          <p data-i18n="road.m3.body">Replicate the Hong Kong coverage model across mainland Chinese tier-1 and tier-2 cities.</p>
+        </article>
       </div>
     </div>
   </div>

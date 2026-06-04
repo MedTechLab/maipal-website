@@ -112,7 +112,7 @@
   /* Font families */
   --font-brush:    'ChillHuoKai', 'Ma Shan Zheng', cursive;     /* greeting H1, character "脉" */
   --font-brush-condensed: 'ChillHuoKai', 'Ma Shan Zheng', cursive; /* use w/ font-stretch:condensed */
-  --font-display:  'ZCOOL XiaoWei', 'Noto Serif SC', serif;      /* section titles, headers */
+  --font-display:  'Noto Serif SC', serif;      /* section titles, headers — Chinese-optimized bold serif */
   --font-serif:    'Noto Serif SC', serif;                       /* numerals, quotes */
   --font-sans:     'Noto Sans SC', system-ui, -apple-system, 'PingFang SC', sans-serif;
 

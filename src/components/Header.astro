@@ -1,11 +1,11 @@
 ---
 const { current = "" } = Astro.props;
 const links = [
-  { href: "/#solution", label: "Solution" },
-  { href: "/#product", label: "Product" },
-  { href: "/#preview", label: "Preview" },
-  { href: "/#team", label: "Team" },
-  { href: "/slideshow", label: "Slideshow" },
+  { href: "/#solution", label: "Solution", i18n: "nav.solution" },
+  { href: "/#product", label: "Product", i18n: "nav.product" },
+  { href: "/#preview", label: "Preview", i18n: "nav.preview" },
+  { href: "/#team", label: "Team", i18n: "nav.team" },
+  { href: "/slideshow", label: "Slideshow", i18n: "nav.slideshow" },
 ];
 ---
 
@@ -22,9 +22,12 @@ const links = [
       <ul class="nav-list">
         {links.map(l => (
           <li>
-            <a href={l.href} class={current === l.href ? "is-current" : ""}>{l.label}</a>
+            <a href={l.href} class={current === l.href ? "is-current" : ""} data-i18n={l.i18n}>{l.label}</a>
           </li>
         ))}
+        <li class="lang-li">
+          <button id="lang-toggle" class="lang-btn" type="button" aria-label="Switch language">中文</button>
+        </li>
       </ul>
     </nav>
   </div>
@@ -88,8 +91,26 @@ const links = [
   nav a:hover { color: var(--shiqing); background: rgba(123, 140, 118, 0.08); }
   nav a.is-current { color: var(--shiqing); background: rgba(123, 140, 118, 0.12); }
 
+  .lang-li { margin-left: 4px; }
+  .lang-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--shiqing);
+    border: none;
+    cursor: pointer;
+    transition: background 200ms var(--ease), transform 150ms var(--ease);
+    letter-spacing: 0.02em;
+  }
+  .lang-btn:hover { background: #8a9b85; }
+  .lang-btn:active { transform: scale(0.95); }
+
   @media (max-width: 720px) {
     .nav-list li { display: none; }
     .nav-list li:last-child { display: inline-flex; }
+    .nav-list .lang-li { display: inline-flex; }
   }
 </style>
