@@ -17,12 +17,13 @@
         An AI wellness companion designed around the logic of 望闻问切.<br />
         A warm, trustworthy guide for adults 45–65 navigating sub-health.
       </p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="https://api.maipal.org/">See the app</a>
-        <a class="btn btn-ghost" href="/slideshow">Open slideshow</a>
-      </div>
-      <div class="hero-qr">
-        <img src="/assets/maipal-qr.jpg" alt="MaiPal QR code" loading="lazy" />
+      <div class="hero-ctas-with-qr">
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://api.maipal.org/">See the app</a>
+        </div>
+        <div class="hero-qr">
+          <img src="/assets/maipal-qr.jpg" alt="MaiPal QR code" loading="lazy" />
+        </div>
       </div>
       <div class="hero-meta">
         <span>app.maipal.org · coming soon</span>
@@ -96,6 +97,12 @@
     margin: 0 0 32px;
   }
   .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+  .hero-ctas-with-qr {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
   .hero-qr { margin-bottom: 24px; }
   .hero-qr img {
     width: 140px;
@@ -182,6 +189,7 @@
     .hero-title { justify-content: center; }
     .hero-sub, .hero-lede { margin-left: auto; margin-right: auto; }
     .hero-ctas { justify-content: center; }
+    .hero-ctas-with-qr { justify-content: center; flex-direction: column; align-items: center; }
     .hero-meta { justify-content: center; }
     .hero-art { min-height: 380px; }
     .hero-doctor { max-height: 400px; }
