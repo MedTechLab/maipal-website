@@ -36,4 +36,4 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: maipal-website
           directory: dist
-          productionBranch: main
+          branch: main
