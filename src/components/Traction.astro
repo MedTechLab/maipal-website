@@ -1,76 +1,77 @@
 ---
-const technicalImplementations = [
-  {
-    title: "AI doctor dialogue",
-    body: "Built on a real TCM knowledge database to simulate authentic consultation.",
-  },
-  {
-    title: "Real-time speech recognition",
-    body: "User speech is transcribed and the AI reply is synthesized to speech in real time.",
-  },
-  {
-    title: "Face & tongue recognition",
-    body: "Image-based extraction generates a professional TCM diagnostic report.",
-  },
-];
-
-const userTestRounds = [
-  { round: "Round 1", focus: "Framework Recognition" },
-  { round: "Round 2", focus: "Trust Issues" },
-  { round: "Round 3", focus: "Interaction Experience" },
-  { round: "Round 4", focus: "Adherence & Long-term Use" },
-];
 ---
 
 <section class="section traction" id="traction">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Traction & Progress</div>
-      <h2 class="section-title">From research database to clinical collaboration.</h2>
+      <div class="eyebrow" data-i18n="trac.eyebrow">Traction & Progress</div>
+      <h2 class="section-title" data-i18n="trac.title">From research database to clinical collaboration.</h2>
     </div>
 
     <div class="trac-grid">
       <article class="trac-card trac-tech">
-        <div class="trac-tag">Technical Implementation</div>
+        <div class="trac-tag" data-i18n="trac.tech.tag">Technical Implementation</div>
         <div class="trac-list">
-          {technicalImplementations.map(t => (
-            <div class="trac-item">
-              <div class="trac-dot"></div>
-              <div>
-                <div class="trac-it-title">{t.title}</div>
-                <p>{t.body}</p>
-              </div>
+          <div class="trac-item">
+            <div class="trac-dot"></div>
+            <div>
+              <div class="trac-it-title" data-i18n="trac.tech1.title">AI doctor dialogue</div>
+              <p data-i18n="trac.tech1.body">Built on a real TCM knowledge database to simulate authentic consultation.</p>
             </div>
-          ))}
+          </div>
+          <div class="trac-item">
+            <div class="trac-dot"></div>
+            <div>
+              <div class="trac-it-title" data-i18n="trac.tech2.title">Real-time speech recognition</div>
+              <p data-i18n="trac.tech2.body">User speech is transcribed and the AI reply is synthesized to speech in real time.</p>
+            </div>
+          </div>
+          <div class="trac-item">
+            <div class="trac-dot"></div>
+            <div>
+              <div class="trac-it-title" data-i18n="trac.tech3.title">Face & tongue recognition</div>
+              <p data-i18n="trac.tech3.body">Image-based extraction generates a professional TCM diagnostic report.</p>
+            </div>
+          </div>
         </div>
       </article>
 
       <article class="trac-card trac-users">
-        <div class="trac-tag trac-tag--gold">User Testing</div>
-        <div class="trac-big">20+</div>
-        <p class="trac-sub">Participants from mainland China and Hong Kong, across four iterative rounds.</p>
+        <div class="trac-tag trac-tag--gold" data-i18n="trac.user.tag">User Testing</div>
+        <div class="trac-big" data-i18n="trac.user.big">20+</div>
+        <p class="trac-sub" data-i18n="trac.user.sub">Participants from mainland China and Hong Kong, across four iterative rounds.</p>
         <ul class="trac-rounds">
-          {userTestRounds.map(r => (
-            <li>
-              <span class="rd-num">{r.round}</span>
-              <span class="rd-focus">{r.focus}</span>
-            </li>
-          ))}
+          <li>
+            <span class="rd-num" data-i18n="trac.user.r1">Round 1</span>
+            <span class="rd-focus" data-i18n="trac.user.r1.focus">Framework Recognition</span>
+          </li>
+          <li>
+            <span class="rd-num" data-i18n="trac.user.r2">Round 2</span>
+            <span class="rd-focus" data-i18n="trac.user.r2.focus">Trust Issues</span>
+          </li>
+          <li>
+            <span class="rd-num" data-i18n="trac.user.r3">Round 3</span>
+            <span class="rd-focus" data-i18n="trac.user.r3.focus">Interaction Experience</span>
+          </li>
+          <li>
+            <span class="rd-num" data-i18n="trac.user.r4">Round 4</span>
+            <span class="rd-focus" data-i18n="trac.user.r4.focus">Adherence & Long-term Use</span>
+          </li>
         </ul>
       </article>
 
       <article class="trac-card trac-clinic">
-        <div class="trac-tag">Clinical Collaboration</div>
+        <div class="trac-tag" data-i18n="trac.clinic.tag">Clinical Collaboration</div>
         <div class="clinic-person">
           <div class="clinic-avatar">
             <span class="brush">范</span>
           </div>
           <div>
-            <div class="clinic-name">Dr. Lian Fan, MD</div>
-            <div class="clinic-role">Director Physician · Doctoral Supervisor</div>
+            <div class="clinic-name" data-i18n="trac.clinic.name">Dr. Lian Fan, MD</div>
+            <div class="clinic-role" data-i18n="trac.clinic.role">Director Physician · Doctoral Supervisor</div>
           </div>
         </div>
-        <p>
+        <p data-i18n="trac.clinic.body">
           Secured clinical collaboration to validate our TCM-based AI solution and its
           potential in preventive care — bridging Chinese and Western medicine.
         </p>

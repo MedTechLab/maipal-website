@@ -4,43 +4,57 @@ const methods = [
     glyph: "望",
     py: "Wang",
     en: "Inspection",
+    enI18n: "prod.wang.en",
     body: "LLM Vision analyzes facial complexion, vitality, skin tone, dark circles and puffiness via front camera — delivering structured TCM face & tongue diagnosis in seconds.",
+    bodyI18n: "prod.wang.body",
   },
   {
     glyph: "闻",
     py: "Wen",
     en: "Auscultation",
+    enI18n: "prod.wen1.en",
     body: "Real-time Web Audio analysis extracts pitch (F0), volume (dB), jitter, spectral tilt and pause frequency from natural speech — replacing Python Praat with pure browser-side acoustics.",
+    bodyI18n: "prod.wen1.body",
   },
   {
     glyph: "问",
     py: "Wen",
     en: "Inquiry",
+    enI18n: "prod.wen2.en",
     body: "The AI doctor asks warm, contextual questions about sleep, diet, digestion, emotions and lifestyle — one question at a time, never clinical or overwhelming.",
+    bodyI18n: "prod.wen2.body",
   },
   {
     glyph: "切",
     py: "Qie",
     en: "Palpation",
+    enI18n: "prod.qie.en",
     body: "For users with wearables, MaiPal accesses device-detected heart rate data to approximate pulse insights and enrich the four-diagnostic synthesis.",
+    bodyI18n: "prod.qie.body",
   },
 ];
 
 const features = [
   {
     title: "Customized Daily Intervention Planning",
+    titleI18n: "prod.feat1.title",
     cn: "个性化每日调理",
     body: "Generates a 7-day TCM plan with photo check-ins, learning resources and guided meditation audio — each task earns points redeemable at partner clinics.",
+    bodyI18n: "prod.feat1.body",
   },
   {
     title: "Integrated Wellness Product Ecosystem",
+    titleI18n: "prod.feat2.title",
     cn: "全链路调理生态",
     body: "Curated herbal teas, medicinal soups and supplements from HKTVmall and Eu Yan Sang — one-tap purchase links bridge AI recommendations to real products.",
+    bodyI18n: "prod.feat2.body",
   },
   {
     title: "Longitudinal Personal Health Profiling",
+    titleI18n: "prod.feat3.title",
     cn: "长期健康追踪",
     body: "A month-view health calendar tracks detection history, task completion and points — with date-detail sheets showing progress bars for each metric over time.",
+    bodyI18n: "prod.feat3.body",
   },
 ];
 ---
@@ -48,11 +62,11 @@ const features = [
 <section class="section product" id="product">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Product</div>
-      <h2 class="section-title">
+      <div class="eyebrow" data-i18n="prod.eyebrow">Product</div>
+      <h2 class="section-title" data-i18n="prod.title">
         Digitizing 望闻问切 — the four classical TCM diagnostic methods.
       </h2>
-      <p class="section-lede">
+      <p class="section-lede" data-i18n="prod.lede">
         MaiPal replicates TCM's Four Diagnostic Methods (四诊合参) through natural
         conversation. Each method becomes an unhurried interaction, not a clinical test.
       </p>
@@ -65,10 +79,10 @@ const features = [
             <span class="dx-glyph brush">{m.glyph}</span>
             <div>
               <div class="dx-py">{m.py}</div>
-              <div class="dx-en">{m.en}</div>
+              <div class="dx-en" data-i18n={m.enI18n}>{m.en}</div>
             </div>
           </div>
-          <p>{m.body}</p>
+          <p data-i18n={m.bodyI18n}>{m.body}</p>
         </article>
       ))}
     </div>
@@ -77,9 +91,9 @@ const features = [
       {features.map(f => (
         <article class="feature">
           <div class="feat-bar"></div>
-          <h3>{f.title}</h3>
+          <h3 data-i18n={f.titleI18n}>{f.title}</h3>
           <div class="feat-cn">{f.cn}</div>
-          <p>{f.body}</p>
+          <p data-i18n={f.bodyI18n}>{f.body}</p>
         </article>
       ))}
     </div>

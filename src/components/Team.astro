@@ -3,8 +3,11 @@ const team = [
   {
     name: "Dr. Anthony Kong",
     role: "Market Lead",
+    roleI18n: "team.m1.role",
     title: "Professor, School of Design",
+    titleI18n: "team.m1.title",
     bio: "Rich experience in Digital Media, Storytelling for Transmedia, Digital Culture and Humanity.",
+    bioI18n: "team.m1.bio",
     awards: [
       "2023 RED DOT Award winner",
       "2024 Bronze Award, DFA Design for Asia Awards",
@@ -15,16 +18,22 @@ const team = [
   {
     name: "Dr. Giovanni Lion",
     role: "AI Engineer",
+    roleI18n: "team.m2.role",
     title: "Visiting Lecturer, PolyU",
+    titleI18n: "team.m2.title",
     bio: "Researcher and developer in the field of generative AI and storytelling. 15+ years experience in multiple languages and platforms.",
+    bioI18n: "team.m2.bio",
     awards: [],
     accent: "gold",
   },
   {
     name: "Ziyi Cao",
     role: "Product Lead",
+    roleI18n: "team.m3.role",
     title: "PolyU Master Student",
+    titleI18n: "team.m3.title",
     bio: "Experience in product operations and user research; strong multimedia and interaction-design foundation.",
+    bioI18n: "team.m3.bio",
     awards: [
       "2026 Recycling Fund's 10th Anniversary Design Competition Runner-up",
     ],
@@ -33,8 +42,11 @@ const team = [
   {
     name: "Xi Jin",
     role: "System Engineer",
+    roleI18n: "team.m4.role",
     title: "PolyU",
+    titleI18n: "team.m4.title",
     bio: "Hands-on experience in interactive system productivity and user-tool development. 6-month internship at Xinguodao (tool design & iteration).",
+    bioI18n: "team.m4.bio",
     awards: [
       "Independent game developer · multiple Game Jam participations",
     ],
@@ -43,8 +55,11 @@ const team = [
   {
     name: "Linjie Yin",
     role: "Designer",
+    roleI18n: "team.m5.role",
     title: "Design and Research Assistant, PolyU Design",
+    titleI18n: "team.m5.title",
     bio: "Rich experience in human-computer interaction design; international industrial experience in user-interface and experience design.",
+    bioI18n: "team.m5.bio",
     awards: [
       "2026 Recycling Fund's 10th Anniversary Design Competition Runner-up",
     ],
@@ -56,9 +71,9 @@ const team = [
 <section class="section team" id="team">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Team</div>
-      <h2 class="section-title">MedTech Lab, School of Design, PolyU.</h2>
-      <p class="section-lede">
+      <div class="eyebrow" data-i18n="team.eyebrow">Team</div>
+      <h2 class="section-title" data-i18n="team.title">MedTech Lab, School of Design, PolyU.</h2>
+      <p class="section-lede" data-i18n="team.lede">
         A multidisciplinary team across design, AI engineering, product and system
         development — building MaiPal for the next fifty years.
       </p>
@@ -67,13 +82,13 @@ const team = [
     <div class="team-grid">
       {team.map(m => (
         <article class={`member member--${m.accent}`}>
-          <div class="member-tag">{m.role}</div>
+          <div class="member-tag" data-i18n={m.roleI18n}>{m.role}</div>
           <div class="member-portrait">
             <span class="member-initial">{m.name.split(" ").slice(-1)[0][0]}</span>
           </div>
           <h3>{m.name}</h3>
-          <div class="member-title">{m.title}</div>
-          <p>{m.bio}</p>
+          <div class="member-title" data-i18n={m.titleI18n}>{m.title}</div>
+          <p data-i18n={m.bioI18n}>{m.bio}</p>
           {m.awards.length > 0 && (
             <ul class="awards">
               {m.awards.map(a => <li>{a}</li>)}

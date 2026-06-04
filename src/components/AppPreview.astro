@@ -4,35 +4,45 @@ const steps = [
     n: "01",
     title: "你好呀",
     en: "Greeting",
+    enI18n: "preview.step1.en",
     body: "脉医生 greets the user by name with a sentence-final 呀 — soft and never clinical. OAuth login with Google, Apple or Microsoft.",
+    bodyI18n: "preview.step1.body",
     bubble: "你好呀，今天需要脉医生帮你看一下身体状况吗？",
   },
   {
     n: "02",
     title: "我先看看您的气色",
     en: "Face & tongue · 望诊",
+    enI18n: "preview.step2.en",
     body: "LLM Vision analyzes complexion, vitality, dark circles, puffiness and tongue coating in real time. Structured JSON output feeds the doctor's reasoning.",
+    bodyI18n: "preview.step2.body",
     bubble: "我看您今天气色略偏淡，舌苔薄白，齿痕轻。",
   },
   {
     n: "03",
     title: "听听您的声音",
     en: "Voice acoustics · 闻诊",
+    enI18n: "preview.step3.en",
     body: "Web Audio API extracts F0 pitch, volume dB, jitter, spectral tilt and pause count — real acoustic analysis, no Python needed.",
+    bodyI18n: "preview.step3.body",
     bubble: "声音稍低微，语速偏慢，换气偏多。中气略有不足。",
   },
   {
     n: "04",
     title: "今天的调理",
     en: "Daily plan · 调理计划",
+    enI18n: "preview.step4.en",
     body: "A 7-day TCM plan with photo check-ins, learning links and guided meditation audio. Each task earns 10 积分 redeemable at the clinic store.",
+    bodyI18n: "preview.step4.body",
     bubble: "早上：枸杞红枣茶 · 午后：散步30分钟 · 晚上：足浴泡脚",
   },
   {
     n: "05",
     title: "中医馆",
     en: "Clinic store · 医馆",
+    enI18n: "preview.step5.en",
     body: "Curated herbal products from HKTVmall & Eu Yan Sang with one-tap purchase. Partner clinic directory with navigation, booking and real-time ratings.",
+    bodyI18n: "preview.step5.body",
     bubble: "虫草党参益气鸡汤 HK$188 — 点击去购买",
   },
 ];
@@ -42,11 +52,11 @@ const steps = [
   <div class="preview-bg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">App Preview</div>
-      <h2 class="section-title">
+      <div class="eyebrow" data-i18n="preview.eyebrow">App Preview</div>
+      <h2 class="section-title" data-i18n="preview.title">
         A calm consultation, rendered on warm xuan paper.
       </h2>
-      <p class="section-lede">
+      <p class="section-lede" data-i18n="preview.lede">
         MaiPal opens with a name, not a logo. The doctor speaks like a kindly grandfather
         who knows you. Every interaction nudges you toward unhurried, long-term care.
       </p>
@@ -102,8 +112,8 @@ const steps = [
         <div class="device-caption">
           <div class="dc-icon">脉</div>
           <div>
-            <div class="dc-name">脉医生 · The chat home</div>
-            <div class="dc-sub">An always-quiet doctor on rice paper</div>
+            <div class="dc-name" data-i18n="preview.device.name">脉医生 · The chat home</div>
+            <div class="dc-sub" data-i18n="preview.device.sub">An always-quiet doctor on rice paper</div>
           </div>
         </div>
       </div>
@@ -113,9 +123,9 @@ const steps = [
           <li class="step">
             <div class="step-n">{s.n}</div>
             <div class="step-body">
-              <div class="step-en">{s.en}</div>
+              <div class="step-en" data-i18n={s.enI18n}>{s.en}</div>
               <h3 class="step-title brush">{s.title}</h3>
-              <p class="step-text">{s.body}</p>
+              <p class="step-text" data-i18n={s.bodyI18n}>{s.body}</p>
               <div class="step-bubble">{s.bubble}</div>
             </div>
           </li>
@@ -129,9 +139,9 @@ const steps = [
           <img src="/slides/demo-face-tongue.gif" alt="Live demo of face & tongue diagnosis interface" loading="lazy" />
         </div>
         <div class="demo-meta">
-          <div class="eyebrow">Demo · 望诊 (LLM Vision)</div>
-          <h3>Face & tongue analysis via AI vision</h3>
-          <p>LLM Vision model directly analyzes facial complexion, eye condition, skin texture, tongue color, coating and sublingual veins — outputting structured TCM diagnostic JSON for the doctor's reasoning chain.</p>
+          <div class="eyebrow" data-i18n="preview.demo1.eyebrow">Demo · 望诊 (LLM Vision)</div>
+          <h3 data-i18n="preview.demo1.title">Face & tongue analysis via AI vision</h3>
+          <p data-i18n="preview.demo1.body">LLM Vision model directly analyzes facial complexion, eye condition, skin texture, tongue color, coating and sublingual veins — outputting structured TCM diagnostic JSON for the doctor's reasoning chain.</p>
         </div>
       </article>
 
@@ -140,9 +150,9 @@ const steps = [
           <img src="/slides/demo-voice.gif" alt="Live demo of voice acoustic analysis" loading="lazy" />
         </div>
         <div class="demo-meta">
-          <div class="eyebrow">Demo · 闻诊 (Web Audio API)</div>
-          <h3>Real-time acoustic voice analysis</h3>
-          <p>Browser-side Web Audio API extracts pitch (F0), intensity (dB), jitter, spectral tilt and pause frequency from natural speech — replacing Python Praat with pure JavaScript acoustics for instant TCM auscultation.</p>
+          <div class="eyebrow" data-i18n="preview.demo2.eyebrow">Demo · 闻诊 (Web Audio API)</div>
+          <h3 data-i18n="preview.demo2.title">Real-time acoustic voice analysis</h3>
+          <p data-i18n="preview.demo2.body">Browser-side Web Audio API extracts pitch (F0), intensity (dB), jitter, spectral tilt and pause frequency from natural speech — replacing Python Praat with pure JavaScript acoustics for instant TCM auscultation.</p>
         </div>
       </article>
     </div>

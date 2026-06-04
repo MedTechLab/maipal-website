@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = "MaiPal 脉伴 — Intelligent Traditional Chinese Medicine Health Companion",
-  description = "An AI wellness companion app designed around traditional Chinese medicine logic — bringing 望闻问切 into everyday life for adults 45–65.",
+  title = "MaiPal \u8109\u4f34 \u2014 Intelligent Traditional Chinese Medicine Health Companion",
+  description = "An AI wellness companion app designed around traditional Chinese medicine logic \u2014 bringing \u671b\u95fb\u95ee\u5207 into everyday life for adults 45\u201365.",
   ogImage = "/slides/01-title.png",
   bodyClass = "paper-bg",
 } = Astro.props;
@@ -45,5 +45,8 @@ const {
   </head>
   <body class={bodyClass}>
     <slot />
+    <script>
+      import "../scripts/i18n.ts";
+    </script>
   </body>
 </html>
